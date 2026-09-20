@@ -17,6 +17,31 @@ hamburger.addEventListener('click', () => {
   navLinks.classList.toggle('open');
 });
 
+/* Dropdown Menu */
+const dropdownBtn = document.getElementById('dropdownBtn');
+const dropdownMenu = document.getElementById('dropdownMenu');
+
+dropdownBtn.addEventListener('click', function () {
+  dropdownMenu.classList.toggle('show');
+  dropdownBtn.classList.toggle('open');
+});
+
+/* Close dropdown when clicking outside */
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.dropdown')) {
+    dropdownMenu.classList.remove('show');
+    dropdownBtn.classList.remove('open');
+  }
+});
+
+/* Close dropdown when a link inside is clicked */
+dropdownMenu.querySelectorAll('a').forEach(function (link) {
+  link.addEventListener('click', function () {
+    dropdownMenu.classList.remove('show');
+    dropdownBtn.classList.remove('open');
+  });
+});
+
 /* Close mobile menu when a link is clicked */
 navLinks.querySelectorAll('a').forEach((link) => {
   link.addEventListener('click', () => {
