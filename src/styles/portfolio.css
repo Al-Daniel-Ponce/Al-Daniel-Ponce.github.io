@@ -189,8 +189,13 @@ a {
   align-items: center;
 }
 
-#dropdownBtn:hover {
+#dropdownBtn:hover,
+#dropdownBtn.active {
   color: var(--text);
+}
+
+#dropdownBtn.active {
+  color: var(--primary-2);
 }
 
 .arrow {
@@ -283,7 +288,7 @@ a {
   inset: 0;
   background:
     linear-gradient(rgba(11, 15, 26, 0.65), rgba(11, 15, 26, 0.85)),
-    url("../hero-bg.gif") center / cover no-repeat;
+    url("/assets/hero-bg.gif") center / cover no-repeat;
   z-index: -1;
 }
 
@@ -452,7 +457,7 @@ a {
   position: relative;
   background:
     linear-gradient(rgba(11, 15, 26, 0.85), rgba(11, 15, 26, 0.9)),
-    url("../about-bg.gif") center / cover no-repeat;
+    url("/assets/about-bg.gif") center / cover no-repeat;
 }
 
 #skills .container {
@@ -464,7 +469,7 @@ a {
   position: relative;
   background:
     linear-gradient(rgba(11, 15, 26, 0.85), rgba(11, 15, 26, 0.9)),
-    url("../contact-bg.gif") center / cover no-repeat;
+    url("/assets/contact-bg.gif") center / cover no-repeat;
 }
 
 #contact .container {
@@ -631,7 +636,7 @@ a {
 /* ============ MY WORK ============ */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 28px;
 }
 
@@ -925,5 +930,29 @@ a {
     background: transparent;
     padding: 0;
     padding-left: 16px;
+  }
+}
+
+/* ============ REDUCED MOTION ============ */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .fill {
+    transition: none;
   }
 }

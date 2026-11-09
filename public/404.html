@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecting…</title>
+  </head>
+  <body>
+    <script>
+      (function () {
+        try {
+          sessionStorage.setItem(
+            'redirect',
+            location.pathname + location.search + location.hash
+          );
+        } catch (error) {
+          // If storage is unavailable, fall back to the home page.
+        }
+        location.replace('/');
+      })();
+    </script>
+  </body>
+</html>
